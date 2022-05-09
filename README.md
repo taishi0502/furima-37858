@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| address            | string | null: false |
+### Association
 
-Things you may want to cover:
+- has_many :items
+- belongs_to :ActiveHash :birth_date
 
-* Ruby version
+## itemsテーブル
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| item_name          | string | null: false |
+| seller             | string | null: false |
+| buyer              | string | null: false |
+| text               | string | null: false |
+| category_ id       | string | null: false |
+| condition_id       | string | null: false |
+| delivery_fee_id    | string | null: false |
+| ship_from_id       | string | null: false |
+| preparation_date_id| string | null: false |
+| price              | string | null: false |
+| image              | string | null: false |
+| brand              | string | null: false |
+| user_id            | string | null: false |
+### Association
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- belongs_to :user
+- belongs_to :ActiveHash :category
+- belongs_to :ActiveHash :condition
+- belongs_to :ActiveHash :delivery_fee
+- belongs_to :ActiveHash :ship_from
+- belongs_to :ActiveHash :preparation_date

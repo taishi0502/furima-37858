@@ -5,27 +5,23 @@
 | ------------------ | ------ | ----------- |
 | nick_name          | string | null: false |
 | email              | string | null: false, unique: true|
-| password           | string | null: false |
+| encrypted_password           | string | null: false |
 | first_name         | string | null: false |
 | last_name          | string | null: false |
 | first_name_kana    | string | null: false |
 | last_name_kana     | string | null: false |
-| birthday           | string | null: false |
+| birthday           | date   | null: false |
 ### Association
 
 - has_many :items
-- belongs_to :order
 - has_many :purchase_histories
-- belongs_to :ActiveHash :birth_date
 
 ## itemsテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | item_name          | string | null: false |
-| seller             | string | null: false |
-| buyer              | string | null: false |
 | item_description   | text   | null: false |
-| category_ id       | integer| null: false |
+| category_id       | integer| null: false |
 | condition_id       | integer| null: false |
 | delivery_fee_id    | integer| null: false |
 | ship_from_id       | integer| null: false |
@@ -35,7 +31,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :order
+- belongs_to :purchase_histories
 - belongs_to :ActiveHash :category
 - belongs_to :ActiveHash :condition
 - belongs_to :ActiveHash :delivery_fee
@@ -45,19 +41,16 @@
 ## ordersテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| card_number        | integer | null: false |
-| validity           | integer | null: false |
-| security_code      | integer | null: false |
-| postal_code        | integer | null: false |
-| prefectures        | string | null: false |
+| postal_code        | string | null: false |
+| prefectures_id     | integer | null: false |
 | city               | string | null: false |
-| address            | integer | null: false |
+| address            | string | null: false |
 | building_name      | string |  |
-| phone_num          | integer | null: false |
+| phone_num          | string | null: false |
+| purchase_history   | references | null: false, foreign_key |
 ### Association
 
-- belongs_to :user
-- belongs_to :item
+- belongs_to :purchase_histories
 - belongs_to :ActiveHash :prefecture
 
 ## purchase_historiesテーブル
@@ -67,6 +60,5 @@
 | user               | references | null: false, foreign_key: true |
 
 ### Association
-
-- belongs_to :item
 - belongs_to :user
+- has_many :orders

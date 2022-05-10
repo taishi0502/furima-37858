@@ -24,7 +24,7 @@
 | category_id        | integer| null: false |
 | condition_id       | integer| null: false |
 | delivery_fee_id    | integer| null: false |
-| ship_from_id       | integer| null: false |
+| prefecture_id      | integer| null: false |
 | preparation_date_id| integer| null: false |
 | price              | integer| null: false |
 | user               |references | null: false, foreign_key: true |
@@ -49,7 +49,7 @@
 | phone_num          | string | null: false |
 | purchase_history   | references | null: false, foreign_key |
 ### Association
-- belongs_to :purchase_histories
+- belongs_to :purchase_history
 - belongs_to :ActiveHash :prefecture
 
 
@@ -61,4 +61,4 @@
 ### Association
 - belongs_to :item
 - belongs_to :user
-- belongs_to :orders
+- has_one :order

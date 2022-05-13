@@ -20,7 +20,5 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, presence: true, numericality: { other_than: 1, message: "Can't be blank" }
   validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "Can't be blank" }
   validates :preparation_date_id, presence: true, numericality: { other_than: 1, message: "Can't be blank" }
-  def was_attached?
-    image.attached?
-  end
+ 
 end

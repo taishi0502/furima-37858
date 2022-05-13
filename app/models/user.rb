@@ -14,4 +14,5 @@ class User < ApplicationRecord
 
   
   has_many :purchase_histories
+  has_many :items
 end

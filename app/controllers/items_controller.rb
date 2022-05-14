@@ -2,7 +2,11 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
   end
+<<<<<<< Updated upstream
  
+=======
+
+>>>>>>> Stashed changes
   def new
     @item = Item.new
   end

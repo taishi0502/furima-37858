@@ -3,10 +3,11 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :deliveryfee
 
   belongs_to_active_hash :category
   belongs_to_active_hash :condition
-  belongs_to_active_hash :Deliveryfee
+  belongs_to_active_hash :delivery_fee
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :Preparationdate
 
@@ -20,5 +21,4 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, presence: true, numericality: { other_than: 1, message: "Can't be blank" }
   validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "Can't be blank" }
   validates :preparation_date_id, presence: true, numericality: { other_than: 1, message: "Can't be blank" }
- 
 end

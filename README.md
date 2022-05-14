@@ -34,7 +34,7 @@
 - belongs_to :ActiveHash :category
 - belongs_to :ActiveHash :condition
 - belongs_to :ActiveHash :delivery_fee
-- belongs_to :ActiveHash :ship_from
+- belongs_to :ActiveHash :prefecture
 - belongs_to :ActiveHash :preparation_date
 
 

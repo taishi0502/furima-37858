@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :item do
     item_name { Faker::Name.last_name }
     item_description { '説明文' }
-    image { 'test_image.png' }
+  
     category_id { 2 }
     condition_id { 2 }
     delivery_fee_id { 2 }

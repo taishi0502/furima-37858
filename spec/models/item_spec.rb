@@ -32,34 +32,63 @@ RSpec.describe Item, type: :model do
       end
 
       it 'categoryが空では投稿できない' do
-        @item.category_id = '', nil
+        @item.category_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it '「--」が選択されている場合は出品できない' do
+        @item.category_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Can't be blank")
+      end
 
       it 'conditionが空では投稿できない' do
-        @item.condition_id = '', nil
+        @item.condition_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
+      it '「--」が選択されている場合は出品できない' do
+        @item.category_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Can't be blank")
+      end
+
 
       it 'delivery_feeが空では投稿できない' do
-        @item.delivery_fee_id = '', nil
+        @item.delivery_fee_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
       end
+      it '「--」が選択されている場合は出品できない' do
+        @item.category_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Can't be blank")
+      end
+
 
       it 'prefectureが空では投稿できない' do
-        @item.prefecture_id = '', nil
+        @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it '「--」が選択されている場合は出品できない' do
+        @item.category_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Can't be blank")
+      end
+
 
       it 'preparation_dateが空では投稿できない' do
-        @item.preparation_date_id = '', nil
+        @item.preparation_date_id = '' 
         @item.valid?
         expect(@item.errors.full_messages).to include("Preparation date can't be blank")
       end
+      it '「--」が選択されている場合は出品できない' do
+        @item.category_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Can't be blank")
+      end
+
 
       it 'priceが空では投稿できない' do
         @item.price = ''

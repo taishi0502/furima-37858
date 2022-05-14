@@ -37,7 +37,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '「--」が選択されている場合は出品できない' do
-        @item.category_id = '--'
+        @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Can't be blank")
       end
@@ -48,7 +48,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it '「--」が選択されている場合は出品できない' do
-        @item.condition_id = '--'
+        @item.condition_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition Can't be blank")
       end
@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
       end
       it '「--」が選択されている場合は出品できない' do
-        @item.delivery_fee_id = '--'
+        @item.delivery_fee_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee Can't be blank")
       end
@@ -72,7 +72,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '「--」が選択されている場合は出品できない' do
-        @item.prefecture_id = '--'
+        @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture Can't be blank")
       end
@@ -84,7 +84,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Preparation date can't be blank")
       end
       it '「--」が選択されている場合は出品できない' do
-        @item.preparation_date_id = '--'
+        @item.preparation_date_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Preparation date Can't be blank")
       end
@@ -92,6 +92,11 @@ RSpec.describe Item, type: :model do
 
       it 'priceが空では投稿できない' do
         @item.price = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+      it 'priceに全角文字が入力されていると登録できない' do
+        @item.price = '１０００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end

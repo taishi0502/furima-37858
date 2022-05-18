@@ -47,7 +47,7 @@
 | address            | string | null: false |
 | building_name      | string |  |
 | phone_num          | string | null: false |
-| purchase_history   | references | null: false, foreign_key |
+| purchase_history   | references | null: false|
 ### Association
 - belongs_to :purchase_history
 - belongs_to :ActiveHash :prefecture

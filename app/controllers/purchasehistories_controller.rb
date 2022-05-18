@@ -32,7 +32,7 @@ class PurchasehistoriesController < ApplicationController
     @item = Item.find(params[:item_id])
   
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
-    
+   
     Payjp::Charge.create(
       
       amount: (@item.price),  

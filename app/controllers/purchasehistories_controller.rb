@@ -5,7 +5,7 @@ class PurchasehistoriesController < ApplicationController
   before_action :set_item
   def index
     
-    @order_address = OrderAddress.new(purchase_params)
+    @order_address = OrderAddress.new
   end
 
 
@@ -25,10 +25,7 @@ class PurchasehistoriesController < ApplicationController
 
   private
 
-  def purchase_params
-    params.permit(:postal_code, :prefecture_id, :city, :address,
-       :building_name, :phone_num, :price).merge(token: params[:token],user_id: current_user.id, item_id: params[:item_id])
-  end
+
   def order_params
     params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :address,
        :building_name, :phone_num, :price).merge(token: params[:token],user_id: current_user.id, item_id: params[:item_id])
@@ -43,7 +40,7 @@ class PurchasehistoriesController < ApplicationController
     Payjp::Charge.create(
       
       amount: (@item.price),  
-      card: purchase_params[:token],    # カードトークン
+      card: order_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end

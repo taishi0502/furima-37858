@@ -10,6 +10,8 @@ class OrderAddress
     validates :phone_num, format: {with: /\A\d{10,11}\z/, message: "is invalid."}
     validates :prefecture_id, numericality: {other_than: 1, message: "Can't be blank"}
     validates :token, presence: true
+    validates :item_id
+    validates :user_id
   end
 
   

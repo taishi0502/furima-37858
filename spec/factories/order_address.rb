@@ -6,12 +6,12 @@ FactoryBot.define do
     address { 'ああ' }
     phone_num { '08080808080' }
     prefecture_id { 2 }
-
     building_name {'ああ'}
-    purchase_history_id  { 1 }
-    item_id { 2 }
-    user_id { 2 }
+    item_id {  }
+    user_id {  }
     token {"tok_8bd29c22fef21da5a1eaf02506c7"}
+
+   
     
  
   

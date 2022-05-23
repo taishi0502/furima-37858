@@ -41,7 +41,8 @@ class PurchasehistoriesController < ApplicationController
       
       amount: (@item.price),  
       card: order_params[:token],    
-      currency: 'jpy'                
+      currency: 'jpy'  
+    )              
   end
 
   def move_to_index
@@ -61,9 +62,6 @@ class PurchasehistoriesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-
-
- 
 
 end
 end

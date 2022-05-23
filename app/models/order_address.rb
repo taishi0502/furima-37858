@@ -13,12 +13,6 @@ class OrderAddress
     validates :item_id
     validates :user_id
   end
-
- 
-
-
-  
-  
   
   def save
     purchasehistory = PurchaseHistory.create(item_id: item_id, user_id: user_id)
